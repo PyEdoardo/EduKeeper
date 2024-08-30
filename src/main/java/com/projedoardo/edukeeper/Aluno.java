@@ -13,21 +13,10 @@ public class Aluno {
     private String cpf;
     private String nome;
     private int idade;
-    private BufferedImage foto;
     private double nota1;
     private double nota2;
     private boolean aprovado;
-    
-    public Aluno(String cpf, String nome, int idade, BufferedImage foto, double nota1, double nota2, boolean aprovado){
-        this.cpf = cpf;
-        this.nome = nome;
-        this.idade = idade;
-        this.foto = foto;
-        this.nota1 = nota1;
-        this.nota2 = nota2;
-        this.aprovado = aprovado;
-    }
-    
+     
     public String getCpf(){
         return cpf;
     }
@@ -36,9 +25,6 @@ public class Aluno {
     }
     public int getIdade(){
         return idade;
-    }
-    public BufferedImage getFoto(){
-        return foto;
     }
     public double getNota1(){
         return nota1;
@@ -69,8 +55,5 @@ public class Aluno {
     }
     public void setIdade(int idade){
         this.idade = idade;
-    }
-    public void setFoto(BufferedImage foto){
-        this.foto = foto;
     }
 }

@@ -14,9 +14,8 @@ public class Coordenador {
     private String cpf;
     private String nome;
     private List<SalaDeAula> salas;
-    private BufferedImage foto;
     
-    public Coordenador(String cpf, String nome, List<SalaDeAula> salas, BufferedImage foto){
+    public Coordenador(String cpf, String nome, List<SalaDeAula> salas){
         this.cpf = cpf;
         this.nome = nome;
         this.salas = salas;
@@ -31,9 +30,7 @@ public class Coordenador {
     public List<SalaDeAula> getSalas(){
         return salas;
     }
-    public BufferedImage getFoto(){
-        return foto;
-    }
+
     //
     
     public void setCpf(String cpf){
@@ -44,8 +41,5 @@ public class Coordenador {
     }
     public void setSalas(List<SalaDeAula> salas){
         this.salas = salas;
-    }
-    public void setFoto(BufferedImage foto){
-        this.foto = foto;
     }
 }

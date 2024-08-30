@@ -14,13 +14,11 @@ public class Professor {
     private String cpf;
     private String nome;
     private List<String> materias;
-    private BufferedImage foto;
     
-    public Professor(String cpf, String nome, List<String> materias, BufferedImage foto){
+    public Professor(String cpf, String nome, List<String> materias){
         this.cpf = cpf;
         this.nome = nome;
         this.materias = materias;
-        this.foto = foto;
     }
     
     public String getCpf(){
@@ -31,9 +29,6 @@ public class Professor {
     }
     public List<String> getMaterias(){
         return materias;
-    }
-    public BufferedImage getFoto(){
-        return foto;
     }
     
     //
@@ -46,8 +41,5 @@ public class Professor {
     }
     public void setMaterias(List<String> materias){
         this.materias = materias;
-    }
-    public void setFoto(BufferedImage foto){
-        this.foto = foto;
     }
 }

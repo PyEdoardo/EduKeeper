@@ -46,14 +46,23 @@ public class UI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         campoImagem = new javax.swing.JLabel();
         campoNome = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        labelNome = new javax.swing.JLabel();
+        labelCpf = new javax.swing.JLabel();
         campoCpf = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        labelIdade = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        labelNota1 = new javax.swing.JLabel();
+        labelNota2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        labelSituacao = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -73,22 +82,24 @@ public class UI extends javax.swing.JFrame {
         jMenuBar3.add(jMenu7);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("EduKeeper (BETA)");
 
         jPanel1.setBackground(new java.awt.Color(56, 56, 56));
 
         campoImagem.setText("                FOTO");
         campoImagem.setEnabled(false);
 
-        jLabel2.setText("Nome:");
+        labelNome.setText("Nome:");
 
-        jLabel3.setText("CPF:");
+        labelCpf.setText("CPF:");
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        labelIdade.setText("Idade:");
+
+        labelNota1.setText("Nota 1:");
+
+        labelNota2.setText("Nota 2:");
+
+        labelSituacao.setText("Situação:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,20 +109,35 @@ public class UI extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(campoImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(labelIdade)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(labelCpf)
+                            .addGap(18, 18, 18)
+                            .addComponent(campoCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(labelNome)
                         .addGap(18, 18, 18)
-                        .addComponent(campoCpf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(664, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(77, 77, 77))
+                        .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(207, 207, 207)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelSituacao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelNota2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelNota1, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,16 +147,28 @@ public class UI extends javax.swing.JFrame {
                     .addComponent(campoImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(campoNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNota1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
+                            .addComponent(labelNota2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelCpf)
                             .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(50, 50, 50)
-                .addComponent(jButton1)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelSituacao)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIdade)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(312, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -139,7 +177,28 @@ public class UI extends javax.swing.JFrame {
         jMenu2.setText("Opções");
 
         jMenuItem1.setText("Pesquisar Aluno");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem1);
+
+        jMenuItem4.setText("Adicionar Aluno");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("Remover Aluno");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
 
@@ -170,40 +229,20 @@ public class UI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Molde String aluno, String cpf, int idade, double nota1, double nota2, boolean aprovado
-        banco.iniciarBanco();
-        
-        aluno.setCpf(JOptionPane.showInputDialog("Qual o CPF do Aluno: "));
-        aluno.setNome(JOptionPane.showInputDialog("Qual o Nome do Aluno: "));
-        aluno.setIdade(Integer.parseInt(JOptionPane.showInputDialog("Qual a Idade do " + aluno.getNome() + ": ")));
-        aluno.setNota1(Double.parseDouble(JOptionPane.showInputDialog("Qual a Nota1 do " + aluno.getNome() + ": ")));
-        aluno.setNota2(Double.parseDouble(JOptionPane.showInputDialog("Qual a Nota2 do " + aluno.getNome() + ": ")));
-        aprovado = JOptionPane.showInputDialog("O Aluno foi Aprovado: sim/não");
-        if (aprovado.equalsIgnoreCase("sim") || aprovado.equalsIgnoreCase("aprovado")){
-            aluno.setAprovado(true); 
-        }
-        else{
-            aluno.setAprovado(false);    
-            }
-        
-        banco.inserirAluno(aluno.getCpf(), aluno.getNome(), aluno.getIdade(), aluno.getNota1(), aluno.getNota2(), String.valueOf(aluno.getAprovado()));
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         try {
@@ -222,6 +261,67 @@ public class UI extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        banco.iniciarBanco();
+        String tipo = JOptionPane.showInputDialog("Gostaria de procurar usando CPF ou Nome: ");
+        String identificador = JOptionPane.showInputDialog("Digite o identificador escolhido: ");
+        boolean tipoBoolean;
+        if(tipo.equalsIgnoreCase("cpf")){
+            tipoBoolean = true;
+        }else{
+            tipoBoolean = false;
+        }
+        
+        aluno = banco.procurarAluno(identificador , tipoBoolean);
+        System.out.println(aluno);
+        System.out.println(aluno.getCpf());
+        System.out.println(aluno.getNome());
+        System.out.println(aluno.getIdade());
+        atualizarInterface();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    public void atualizarInterface(){
+        labelNome.setText(aluno.getNome());
+        labelCpf.setText(aluno.getCpf());
+        labelIdade.setText(String.valueOf(aluno.getIdade()));
+        labelNota1.setText(String.valueOf(aluno.getNota1()));
+        labelNota2.setText(String.valueOf(aluno.getNota2()));
+        
+        System.out.println(aluno.getAprovado());
+        if (aluno.getAprovado() == true){
+            labelSituacao.setText("Aprovado");
+        }else{
+            labelSituacao.setText("Reprovado");
+        }
+    }
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+         //Molde String aluno, String cpf, int idade, double nota1, double nota2, boolean aprovado
+        banco.iniciarBanco();
+        
+        aluno.setCpf(JOptionPane.showInputDialog("Qual o CPF do Aluno: "));
+        aluno.setNome(JOptionPane.showInputDialog("Qual o Nome do Aluno: "));
+        aluno.setIdade(Integer.parseInt(JOptionPane.showInputDialog("Qual a Idade do " + aluno.getNome() + ": ")));
+        aluno.setNota1(Double.parseDouble(JOptionPane.showInputDialog("Qual a Nota1 do " + aluno.getNome() + ": ")));
+        aluno.setNota2(Double.parseDouble(JOptionPane.showInputDialog("Qual a Nota2 do " + aluno.getNome() + ": ")));
+        
+        //Considerando que Nota1 tem peso 1 e Nota2 peso 2, precisa de 6 para passar
+        if(aluno.getNota1() + aluno.getNota2() >= 6){
+            aluno.setAprovado(true);
+        }else{
+            aluno.setAprovado(false);
+            
+        }
+        
+        banco.inserirAluno(aluno.getCpf(), aluno.getNome(), aluno.getIdade(), aluno.getNota1(), aluno.getNota2(), String.valueOf(aluno.getAprovado()));
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        banco.iniciarBanco();
+        
+        String cpf = JOptionPane.showInputDialog("Digite o CPF do Aluno a Remover: ");
+        
+        banco.removerAluno(cpf);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
     protected void iniciarMenuEscuro(){
         try {
         UIManager.setLookAndFeel(new FlatMacDarkLaf());
@@ -268,9 +368,10 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JLabel campoCpf;
     private javax.swing.JLabel campoImagem;
     private javax.swing.JLabel campoNome;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -285,6 +386,14 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelCpf;
+    private javax.swing.JLabel labelIdade;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelNota1;
+    private javax.swing.JLabel labelNota2;
+    private javax.swing.JLabel labelSituacao;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,7 +16,25 @@ public class Aluno {
     private double nota1;
     private double nota2;
     private boolean aprovado;
-     
+    
+    public Aluno(){
+        this.cpf = null;
+        this.nome = null;
+        this.idade = 0;
+        this.nota1 = 0;
+        this.nota2 = 0;
+        this.aprovado = true;
+    }
+    
+    public Aluno(String cpf, String nome, int idade, double nota1, double nota2, boolean aprovado){
+        this.cpf = cpf;
+        this.nome = nome;
+        this.idade = idade;
+        this.nota1 = nota1;
+        this.nota2 = nota2;
+        this.aprovado = aprovado;
+    }
+    
     public String getCpf(){
         return cpf;
     }

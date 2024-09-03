@@ -6,15 +6,17 @@ package com.projedoardo.edukeeper;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import javax.imageio.ImageIO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.Arrays;
 import java.util.List;
 import java.io.IOException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.time.LocalDate;
+import java.time.LocalTime;
 /**
  *
  * @author edoar
@@ -64,5 +66,25 @@ public class Utilidades {
             ImageIO.write(image, "png", baos); // Use o formato desejado (ex: png, jpg)
             return baos.toByteArray();
         }
+    }
+    public static ArrayList<String> adicionarMaterias(String input){
+        String[] materia = input.split(";");
+        Utilidades.logEduKeeper("Materias: " + materia);
+        return new ArrayList<>(Arrays.asList(materia));
+    }
+    public static void logEduKeeper(String texto){
+        LocalDate data = LocalDate.now();
+        LocalTime tempo = LocalTime.now();
+        
+        String retorno = "[EduKeeper] "
+                        + "["
+                        + data
+                        + "]"
+                        + "["
+                        + tempo
+                        + "] "
+                        + texto;
+        
+        System.out.println(retorno);
     }
 }

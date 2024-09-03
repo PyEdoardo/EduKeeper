@@ -6,6 +6,8 @@ package com.projedoardo.edukeeper;
 
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -17,14 +19,20 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class UI extends javax.swing.JFrame {
     public BancoDeDados banco = new BancoDeDados();
     public Aluno aluno = new Aluno();
+    public Professor professor = new Professor();
     private String aprovado;
-    
+    private static String versao = "BETA 1.0";
+    private static ImageIcon icon = new ImageIcon("resources/icones/icone_app/iconeApp.png");
+    private static Image imagem = icon.getImage();
     /**
      * Creates new form UI
      */
     public UI() {
         initComponents();
         iniciarMenuEscuro();
+        Utilidades.logEduKeeper("Inicializando o EduKeeper " + versao);
+        Utilidades.logEduKeeper("Adicionando Ícones");
+        super.setIconImage(imagem);
     }
 
     /**
@@ -43,6 +51,10 @@ public class UI extends javax.swing.JFrame {
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         campoImagem = new javax.swing.JLabel();
         campoNome = new javax.swing.JLabel();
@@ -60,9 +72,15 @@ public class UI extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -81,25 +99,20 @@ public class UI extends javax.swing.JFrame {
         jMenu7.setText("Edit");
         jMenuBar3.add(jMenu7);
 
+        jMenuItem6.setText("jMenuItem6");
+
+        jMenuItem8.setText("jMenuItem8");
+
+        jMenuItem9.setText("jMenuItem9");
+
+        jMenuItem11.setText("jMenuItem11");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EduKeeper (BETA)");
 
         jPanel1.setBackground(new java.awt.Color(56, 56, 56));
 
-        campoImagem.setText("                FOTO");
         campoImagem.setEnabled(false);
-
-        labelNome.setText("Nome:");
-
-        labelCpf.setText("CPF:");
-
-        labelIdade.setText("Idade:");
-
-        labelNota1.setText("Nota 1:");
-
-        labelNota2.setText("Nota 2:");
-
-        labelSituacao.setText("Situação:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -137,7 +150,7 @@ public class UI extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,14 +189,6 @@ public class UI extends javax.swing.JFrame {
 
         jMenu2.setText("Opções");
 
-        jMenuItem1.setText("Pesquisar Aluno");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem1);
-
         jMenuItem4.setText("Adicionar Aluno");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,6 +197,14 @@ public class UI extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem4);
 
+        jMenuItem1.setText("Pesquisar Aluno");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
         jMenuItem5.setText("Remover Aluno");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,6 +212,23 @@ public class UI extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem5);
+        jMenu2.add(jSeparator3);
+
+        jMenuItem7.setText("Adicionar Professor");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem7);
+
+        jMenuItem10.setText("Pesquisar Professor");
+        jMenu2.add(jMenuItem10);
+
+        jMenuItem12.setText("Remover Professor");
+        jMenu2.add(jMenuItem12);
+        jMenu2.add(jSeparator2);
+        jMenu2.add(jSeparator1);
 
         jMenuBar1.add(jMenu2);
 
@@ -229,7 +259,7 @@ public class UI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(28, 28, 28))
         );
@@ -274,24 +304,18 @@ public class UI extends javax.swing.JFrame {
         }
         
         aluno = banco.procurarAluno(identificador , tipoBoolean);
-        System.out.println(aluno);
-        System.out.println(aluno.getCpf());
-        System.out.println(aluno.getNome());
-        System.out.println(aluno.getIdade());
         atualizarInterface();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
     public void atualizarInterface(){
-        labelNome.setText(aluno.getNome());
-        labelCpf.setText(aluno.getCpf());
-        labelIdade.setText(String.valueOf(aluno.getIdade()));
-        labelNota1.setText(String.valueOf(aluno.getNota1()));
-        labelNota2.setText(String.valueOf(aluno.getNota2()));
-        
-        System.out.println(aluno.getAprovado());
+        labelNome.setText("Nome: " + aluno.getNome());
+        labelCpf.setText("CPF: " +aluno.getCpf());
+        labelIdade.setText("Idade: " + String.valueOf(aluno.getIdade()));
+        labelNota1.setText("Nota1: " +String.valueOf(aluno.getNota1()));
+        labelNota2.setText("Nota2: "+ String.valueOf(aluno.getNota2()));
         if (aluno.getAprovado() == true){
-            labelSituacao.setText("Aprovado");
+            labelSituacao.setText("Situação: Aprovado");
         }else{
-            labelSituacao.setText("Reprovado");
+            labelSituacao.setText("Situação: Reprovado");
         }
     }
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -305,7 +329,8 @@ public class UI extends javax.swing.JFrame {
         aluno.setNota2(Double.parseDouble(JOptionPane.showInputDialog("Qual a Nota2 do " + aluno.getNome() + ": ")));
         
         //Considerando que Nota1 tem peso 1 e Nota2 peso 2, precisa de 6 para passar
-        if(aluno.getNota1() + aluno.getNota2() >= 6){
+        double nota_total = (aluno.getNota1() + aluno.getNota2());
+        if(nota_total >= 6){
             aluno.setAprovado(true);
         }else{
             aluno.setAprovado(false);
@@ -317,11 +342,20 @@ public class UI extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         banco.iniciarBanco();
-        
         String cpf = JOptionPane.showInputDialog("Digite o CPF do Aluno a Remover: ");
-        
         banco.removerAluno(cpf);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        banco.iniciarBanco();
+        professor.setCpf(JOptionPane.showInputDialog("Digite o CPF do Professor: "));
+        professor.setNome(JOptionPane.showInputDialog("Digite o nome do Professor: "));
+        String materiasString = JOptionPane.showInputDialog("Digite as Matérias do Professor dessa Forma: (materia1;materia2;materia3..)");
+        Utilidades.logEduKeeper("Matérias do Professor: " + materiasString);
+        professor.setMaterias(Utilidades.adicionarMaterias(materiasString));
+        
+        banco.inserirProfessor(professor.getCpf(), professor.getNome(), professor.getMaterias());
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
     protected void iniciarMenuEscuro(){
         try {
         UIManager.setLookAndFeel(new FlatMacDarkLaf());
@@ -384,11 +418,21 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JLabel labelCpf;
     private javax.swing.JLabel labelIdade;
     private javax.swing.JLabel labelNome;

@@ -4,8 +4,7 @@
  */
 package com.projedoardo.edukeeper;
 
-import java.awt.image.BufferedImage;
-import java.util.List;
+import java.util.ArrayList;
 /**
  *
  * @author edoar
@@ -13,9 +12,15 @@ import java.util.List;
 public class Professor {
     private String cpf;
     private String nome;
-    private List<String> materias;
+    private ArrayList<String> materias;
     
-    public Professor(String cpf, String nome, List<String> materias){
+    public Professor(){
+        this.cpf = null;
+        this.nome = null;
+        this.materias = null;
+    }
+    
+    public Professor(String cpf, String nome, ArrayList<String> materias){
         this.cpf = cpf;
         this.nome = nome;
         this.materias = materias;
@@ -27,7 +32,7 @@ public class Professor {
     public String getNome(){
         return nome;
     }
-    public List<String> getMaterias(){
+    public ArrayList<String> getMaterias(){
         return materias;
     }
     
@@ -39,7 +44,7 @@ public class Professor {
     public void setNome(String nome){
         this.nome = nome;
     }
-    public void setMaterias(List<String> materias){
+    public void setMaterias(ArrayList<String> materias){
         this.materias = materias;
     }
 }

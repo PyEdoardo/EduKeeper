@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  *
@@ -50,6 +51,7 @@ public class BancoDeDados {
                 statement.close();
                 conexao.close();
                 pstmt.close();
+                Utilidades.logEduKeeper("Aluno: " + nome + " Adicionado");
         }
            }catch(SQLException e){
                System.err.println(e);
@@ -67,13 +69,14 @@ public class BancoDeDados {
                 int rowsAffected = pstmt.executeUpdate();
                 
                 if (rowsAffected > 0){
-                    System.out.println("Aluno Removido com Sucesso!");
+                    
                     JOptionPane.showMessageDialog(null, "Aluno Removido com Sucesso!");
                 }else{
-                    System.out.println("");
+                    
                     JOptionPane.showMessageDialog(null, "Aluno não encontrado com o CPF Especificado!");
                 }
             }
+            Utilidades.logEduKeeper("Aluno: " + cpf + " Removido");
         }catch(SQLException e){
             System.err.println(e);
         }
@@ -102,15 +105,16 @@ public class BancoDeDados {
                 aluno.setNota1(rs.getDouble("nota1"));
                 aluno.setNota2(rs.getDouble("nota2"));
                 aluno.setAprovado(rs.getBoolean("aprovado"));
-                System.err.println("ERRO PROCURA, APROVADO: " + aluno.getAprovado());
                 rs.close();
                 conexao.close();
                 pstmt.close();
+                Utilidades.logEduKeeper("Procura do Aluno Concluída");
+                Utilidades.logEduKeeper("Aluno: " + aluno.getNome() + "CPF: " + aluno.getCpf());
                 return new Aluno(aluno.getCpf(), aluno.getNome(), aluno.getIdade(), aluno.getNota1(), aluno.getNota2(), aluno.getAprovado());
             }
             
             }catch(SQLException e){
-                System.err.println(e);
+                            System.err.println(e);
             }
             
         }else{
@@ -135,11 +139,13 @@ public class BancoDeDados {
                 rs.close();
                 conexao.close();
                 pstmt.close();
-                return aluno;
+                Utilidades.logEduKeeper("Procura do Aluno Concluída");
+                Utilidades.logEduKeeper("Aluno: " + aluno.getNome() + "CPF: " + aluno.getCpf());
+                return new Aluno(aluno.getCpf(), aluno.getNome(), aluno.getIdade(), aluno.getNota1(), aluno.getNota2(), aluno.getAprovado());
             }
             
             }catch(SQLException e){
-                System.err.println(e);
+                                System.err.println(e);
             }
         }
         return aluno;
@@ -148,8 +154,33 @@ public class BancoDeDados {
         
     }
     /////////////////////////////////////// Parte Professor
-    public void inserirProfessor(){
+    public void inserirProfessor(String cpf, String nome, ArrayList<String> materias){
+        Professor professor = new Professor();
         
+        try{
+            conexao = DriverManager.getConnection("jdbc:sqlite:banco.db");
+            Statement statement = conexao.createStatement();
+            statement.setQueryTimeout(30);
+               
+            String sql = "INSERT INTO Professor(cpf, nome, materias) VALUES(?, ?, ?)";
+            
+            try(PreparedStatement pstmt = conexao.prepareStatement(sql)){
+                pstmt.setString(1, cpf);
+                pstmt.setString(2, nome);
+                pstmt.setString(3, String.join(",", materias));
+                statement.close();
+                conexao.close();
+                pstmt.close();
+                JOptionPane.showMessageDialog(null, "Professor " + nome + "Adicionado!");
+                Utilidades.logEduKeeper("Inserção do Professor Concluída");
+                Utilidades.logEduKeeper("Professor: " + nome + "CPF: " + cpf);
+            }
+            statement.close();
+            conexao.close();
+
+        }catch(SQLException e){
+            System.err.println(e);
+        }
     }
     public void removerProfessor(){
         
